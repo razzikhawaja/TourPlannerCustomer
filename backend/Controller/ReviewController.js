@@ -1,4 +1,4 @@
-const Review = require('../models/review');
+const Review = require('../Models/ReviewModel');
 
 const ReviewController = {
     // Add a review

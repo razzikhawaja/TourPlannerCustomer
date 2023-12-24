@@ -1,4 +1,4 @@
-const Booking = require('../models/booking');
+const Booking = require('../Models/BookingModel');
 
 const BookingController = {
     // Create a new booking

@@ -1,5 +1,5 @@
-const Tour = require('../models/tour');
-const Booking = require('../models/booking');
+const Tour = require('../Models/TourModel');
+const Booking = require('../Models/BookingModel');
 
 const TourController = {
     // Search for tours

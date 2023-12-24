@@ -1,4 +1,4 @@
-const Wishlist = require('../models/wishlist');
+const Wishlist = require('../Models/WishlistModel');
 
 const WishlistController = {
     // Add a tour to the wishlist

@@ -1,4 +1,4 @@
-const Cart = require('../models/cart');
+const Cart = require('../Models/CartModel');
 
 const CartController = {
     // Add a tour to the cart
