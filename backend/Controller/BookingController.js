@@ -1,14 +1,13 @@
 const Booking = require('../Models/BookingModel');
 
 const BookingController = {
-    // Create a new booking
     createBooking: async (req, res) => {
         try {
             const newBooking = new Booking({
                 tour: req.body.tourId,
                 customer: req.body.customerId,
                 bookingDate: req.body.bookingDate,
-                status: req.body.status // e.g., 'confirmed', 'pending'
+                status: req.body.status 
             });
 
             const savedBooking = await newBooking.save();
@@ -18,15 +17,14 @@ const BookingController = {
         }
     },
 
-    // Update an existing booking
     updateBooking: async (req, res) => {
         try {
             const updatedBooking = await Booking.findByIdAndUpdate(
                 req.params.bookingId,
                 {
-                    $set: req.body // Update fields provided in req.body
+                    $set: req.body 
                 },
-                { new: true } // Return the updated object
+                { new: true } 
             );
 
             if (!updatedBooking) {
@@ -39,7 +37,6 @@ const BookingController = {
         }
     },
 
-    // Delete a booking
     deleteBooking: async (req, res) => {
         try {
             const booking = await Booking.findByIdAndRemove(req.params.bookingId);
@@ -54,12 +51,11 @@ const BookingController = {
         }
     },
 
-    // Get details of a specific booking
     getBookingDetails: async (req, res) => {
         try {
             const booking = await Booking.findById(req.params.bookingId)
-                                          .populate('tour') // Assuming you want to populate tour details
-                                          .populate('customer'); // Assuming you want to populate customer details
+                                          .populate('tour') 
+                                          .populate('customer'); 
 
             if (!booking) {
                 return res.status(404).send('Booking not found.');

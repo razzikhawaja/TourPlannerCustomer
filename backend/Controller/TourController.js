@@ -5,7 +5,7 @@ const TourController = {
     // Search for tours
     searchTours: async (req, res) => {
         try {
-            const searchCriteria = req.query; // Assuming search criteria are passed as query parameters
+            const searchCriteria = req.query; 
 
             const tours = await Tour.find(searchCriteria);
 
@@ -28,7 +28,7 @@ const TourController = {
                 tour: tourId,
                 customer: customerId,
                 bookingDate,
-                status: 'pending' // Set an initial status for the booking
+                status: 'pending' 
             });
 
             await newBooking.save();

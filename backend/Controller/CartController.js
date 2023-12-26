@@ -1,11 +1,10 @@
 const Cart = require('../Models/CartModel');
 
 const CartController = {
-    // Add a tour to the cart
     addToCart: async (req, res) => {
         const customerId = req.body.customerId;
         const tourId = req.body.tourId;
-        const quantity = req.body.quantity || 1; // Default to 1 if not provided
+        const quantity = req.body.quantity || 1; 
 
         try {
             let cart = await Cart.findOne({ customer: customerId });
@@ -34,7 +33,7 @@ const CartController = {
 
         try {
             const cart = await Cart.findOne({ customer: customerId })
-                                   .populate('items.tour'); // Populate tour details
+                                   .populate('items.tour'); 
 
             if (!cart) {
                 return res.status(404).send('Cart not found.');

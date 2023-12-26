@@ -1,12 +1,9 @@
 const Review = require('../Models/ReviewModel');
 
 const ReviewController = {
-    // Add a review
     addReview: async (req, res) => {
         try {
             const { tour, customer, rating, comment } = req.body;
-
-            // Additional validation or business logic can be added here
 
             const newReview = new Review({
                 tour, 
@@ -28,7 +25,7 @@ const ReviewController = {
             const tourId = req.params.tourId;
 
             const reviews = await Review.find({ tour: tourId })
-                                        .populate('customer', 'name'); // Include customer's name
+                                        .populate('customer', 'name'); 
 
             if (reviews.length === 0) {
                 return res.status(404).send('No reviews found for this tour.');

@@ -30,7 +30,7 @@ const WishlistController = {
             const customerId = req.params.customerId;
 
             const wishlist = await Wishlist.findOne({ customer: customerId })
-                                           .populate('tours'); // Populate tour details
+                                           .populate('tours'); 
 
             if (!wishlist) {
                 return res.status(404).send('Wishlist not found.');
